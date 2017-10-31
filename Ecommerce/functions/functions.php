@@ -17,7 +17,7 @@ function getCats(){
 }
 
 
-
+//getting the brands
 function getBrands(){
 	global $con;
 	$get_brands = "SELECT * FROM brands";
