@@ -81,13 +81,41 @@ include("functions/functions.php")
 				</span>
 			</div><!--ShoppingCart ends-->
 			<!--products box starts-->	
-			<div id="products_box">
-					<?php getProds();?>
-					<?php getCategoryProds();?>
-					<?php getBrandProds(); ?>
-				</div><!--products box ends-->	
+			<div align="center">
+				<form style="padding-top: 1px;" action="" method="post" enctype="multipart/form-data">
+
+				<table style="padding-bottom: 30px; border:2px solid black; align-content: center; width: 700px; height:100px; background-color: skyblue;">
+
+				<tr style="border: 5px solid black; text-align: center;">
+					<td style="border: 1px solid black; text-align: center;" colspan="7"><h3>Updatye your Cart</h3></td>
+				</tr>
+
+				<tr style="border: 1px solid black; text-align: center;">
+					<th style="border: 1px solid black; text-align: center;">Remove</th>
+					<th style="border: 1px solid black; text-align: center;">Product(s)</th>
+					<th style="border: 1px solid black; text-align: center;">Quantity</th>
+					<th style="border: 1px solid black; text-align: center;">Total Price:</th>
+				</tr>
+				<?php getCartProds(); ?>
+				<tr style="border: 1px solid black; text-align: center;"align="center">
+					<td></td>
+					<td></td>
+					<td></td>
+					<td style="border: 1px solid black; text-align: center;"><b style="color: red;"><?php PriceCartItems();?></b></td>
+				</tr>
+				<tr style="border: 1px solid black; text-align: center;">
+					<td colspan="2"><input type="submit" name="update_cart" value="Update Cart"></td>
+					<td><input type="submit" name="continue" value="Continue Shopping"></td>
+					<td><button><a href="checkout.php" style="text-decoration: none; color: black;"></a>CheckOut</button></td>
+				</tr>
+			</table>
+		</form>
+				</div><!--products box ends-->
+				<?php cart(); ?>	
+				<?php echo @$up_cart = updatecart();?>
+				<?php updatecart();?>
 				<?php getIp(); ?>
-				<?php cart(); ?>
+				
 		</div><!--content area ends-->
 		
 	</div>
