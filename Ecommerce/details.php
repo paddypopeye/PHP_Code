@@ -8,7 +8,7 @@ include("functions/functions.php")
 
 <html>
 	<head>
-		<title>MyOnlineShop</title>
+		<title>Product Details</title>
 		<link rel="stylesheet" type="text/css" href="styles/styles.css" media="all">
 	</head>
 
@@ -75,19 +75,17 @@ include("functions/functions.php")
 		<div id="content_area">
 			<!--ShoppingCart starts-->
 			<div id="shopping_cart">
-				<span style="float: left; font-size: 16px; padding: 5px; line-height:40px;">Welcome Guest:&nbsp;<b style="color: yellow;">Shopping Cart:&nbsp;</b>Total Items:<b class="blink_text2" style="color: red;"><?php totalCartItems();?></b>&nbsp;Total Price: <b class="blink_text2" style="color: red;"><?php PriceCartItems();?></b>
+
+				<span style="float: left; font-size: 16px; padding: 5px; line-height:40px;">Welcome Guest:&nbsp;<b style="color: yellow;">Shopping Cart:&nbsp;</b>Total Items:<b class="blink_text2" style="color: red;"><?php totalCartItems();?></b>&nbsp;Total Price:<b class="blink_text2" style="color: red;"><?php PriceCartItems();?></b>
 				<a href="cart.php" style="color: orange; font-family: comic;font-weight: bolder; text-decoration: none;">Go To Cart</a>
 				<a href="cart.php" style="color: yellow; font-family: comic;font-weight: bolder; text-decoration: none;">Login</a>
 				</span>
 			</div><!--ShoppingCart ends-->
-			<!--products box starts-->	
-			<div id="products_box">
-					<?php getProds();?>
-					<?php getCategoryProds();?>
-					<?php getBrandProds(); ?>
-				</div><!--products box ends-->	
-				<?php getIp(); ?>
-				<?php cart(); ?>
+			<!--Products Box Starts -->
+			<div id="products_box" style="margin-left: 5px; margin-bottom: 10px;">
+					<?php getSingleProd();?>
+
+				</div><!--Products Box Ends -->
 		</div><!--content area ends-->
 		
 	</div>
