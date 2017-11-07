@@ -94,7 +94,7 @@ include("functions/functions.php")
 
 
 
-		<div id="footer"><!--Footer starts --><h2 style="text-align: center; padding-top: 30px;">&copy; 2017 by www.EugeneSleator/php.com</h2></div><!--Footer Ends-->
+		<div id="footer"><!--Footer starts --><h2 style="text-align: center; padding-top: 30px;">&copy; 2017 by www.paddypopeye.com/php</h2></div><!--Footer Ends-->
 
 
 </div><!--main_wrapper ends-->

@@ -431,15 +431,7 @@ function getCartProds(){
 		$prod_title = $cart_prods['product_title'];
 		$prod_price = $cart_prods['product_price'];
 
-	echo "
-		<tr style='border: 1px solid black; text-align: center;'>
-					<td style='border: 1px solid black; text-align: center; padding-top: 50px;'><input type='checkbox' name='remove[]' value='$prod_qty'/></td>
-					<td style='border: 1px solid black; text-align: center;'><p>$prod_title</p><br>
-						<img style='border:1px solid black; padding-bottom: 1px;'src='admin_area/product_images/$prod_image'/ width='80' height='80'></td>
-					<td style='border: 1px solid black; text-align: center;'><input type='text' size='3' name='qty' value='$prod_qty'/></td>
-					<td style='border: 1px solid black; text-align: center;'>$prod_price*$prod_qty</td>
-
-		</tr>";}
+}
 
 				
 			}
@@ -447,36 +439,5 @@ function getCartProds(){
 		}
 	}
 
-	function updatecart(){
-		
-		global $con; 
-		
-		$ip = getIp();
-		if (!isset($_GET['cat'])) {
-		if (!isset($_GET['brand'])) {
-		
-		if(isset($_POST['update_cart'])){
-		
-			foreach($_POST['remove'] as $remove_id){
-			
-			$delete_product = "DELETE FROM cart WHERE p_id='$remove_id' AND ip_add='$ip'";
-			
-			$run_delete = mysqli_query($con, $delete_product); 
-			
-			if($run_delete){
-			
-			echo "<script>window.open('cart.php','_self')</script>";
-			
-			}
-			
-			}
-		
-		}}}
-		if(isset($_POST['continue'])){
-		
-		echo "<script>window.open('index.php','_self')</script>";
-		
-		}
-	
-	}
+
 ?> 
