@@ -130,12 +130,39 @@ include("functions/functions.php")
 			
 			$single_price = $pp_price['product_price'];
 			
-			$values = array_sum($product_price); 
+			$values = array_sum($product_price);
+
+
+						if(isset($_POST['update_cart'])){
+						
+							$qty = $_POST['qty'];
+							
+							$update_qty = "UPDATE cart SET qty='$qty'";
+							
+							$run_qty = mysqli_query($con, $update_qty); 
+							
+							$_SESSION['qty'] =	$qty;
+							
+							
+						 
+						if(!isset($_POST['update_cart'])){
+						
+							$qty = $_POST['qty'];
+							
+							$update_qty = "UPDATE cart SET qty='$qty'";
+							
+							$run_qty = mysqli_query($con, $update_qty); 
+							
+							$_SESSION['qty'] =	$qty;
+							
+							
+						} }
 			
 			
 
 					
 ?>
+
 	
 <tr style='border: 1px solid black; text-align: center;'>
 	<td style='border: 1px solid black; text-align: center; padding-top: 50px;'><input type="checkbox" name="remove[]" value="<?php echo $pro_id;?>"/></td>
@@ -171,8 +198,8 @@ include("functions/functions.php")
 
 		<td><button><a href="checkout.php" style="text-decoration: none; color:gray;">CheckOut</a></button></td>
 	</tr>
-			</table>
-		</form>
+			
+		
 <?php
 
 		global $con;
@@ -180,14 +207,14 @@ include("functions/functions.php")
 			if (isset($_POST['remove_cart'])) {
 
 				foreach ($_POST['remove'] as $remove_id) {
-						if ($remove_id == 0){
+						if (!$remove_id){
 							echo "<script>window.open('cart.php','_self')";
 							}
 						$delete_product = "DELETE FROM cart WHERE p_id='$remove_id' AND ip_addr='$ip'";
 						$run_delete = mysqli_query($con, $delete_product);
 						if ($run_delete) {
 						echo "<script>window.open('cart.php','_self')</script>";
-						echo "<?php $remove_id; ?>";
+						
 							}
 						
 					}
@@ -200,28 +227,18 @@ include("functions/functions.php")
 			
 ?>
 				</div><!--products box ends-->
-				<?php cart(); ?>	
+				<?php getCartProds(); ?>	
 				
 				
 				<?php getIp(); ?>
 				
 		<?php 
 				
-						global $con;
-						if(isset($_POST['update_cart'])){
+
 						
-							$qty = $_POST['qty'];
-							
-							$update_qty = "UPDATE cart SET qty='$qty'";
-							
-							$run_qty = mysqli_query($con, $update_qty); 
-							
-							$_SESSION['qty'] =	$qty;
-							
-							
-						}
-						
-				?>
+				?></table>
+
+			</form>
 				
 		</div><!--content area ends-->
 		
