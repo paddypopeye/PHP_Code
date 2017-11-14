@@ -1,7 +1,8 @@
 <!DOCTYPE html>
 
 <?php
-include("functions/functions.php")
+session_start();
+include_once("functions/functions.php")
 ?>
 
 
@@ -31,8 +32,24 @@ include("functions/functions.php")
 			<ul id="menu">
 				<li><a href="index.php">Home</a></li>
 				<li><a href="all_products.php">All Products</a></li>
-				<li><a href="#">My Account</a></li>
-				<li><a href="#">Sign Up</a></li>
+<?php
+					if(isset($_SESSION['customer_email'])){
+						
+						echo"<a href='customer/customerMyAccount.php'>My Account</a>";
+					}
+					else{
+						echo"<a href='checkout.php'>My Account</a>";	
+					}
+?>
+<?php
+					if(!isset($_SESSION['customer_email'])){
+						
+						echo"<a href='customerReg.php'>Sign Up</a>";
+					}
+					else{
+						echo"<a href='customer/customerMyAccount.php'>Sign Up</a>";	
+					}
+?>
 				<li><a href="cart.php">Shopping Cart</a></li>
 				<li><a href="#">Contact Us</a></li>
 				
@@ -75,9 +92,33 @@ include("functions/functions.php")
 		<div id="content_area">
 			<!--ShoppingCart starts-->
 			<div id="shopping_cart">
-				<span style="float: left; font-size: 16px; padding: 5px; line-height:40px;">Welcome Guest:&nbsp;<b style="color: yellow;">Shopping Cart:&nbsp;</b>Total Items:<b class="blink_text2" style="color: red;"><?php totalCartItems();?></b>&nbsp;Total Price: <b class="blink_text2" style="color: red;"><?php PriceCartItems();?></b>
-				<a href="cart.php" style="color: orange; font-family: comic;font-weight: bolder; text-decoration: none;">Go To Cart</a>
-				<a href="cart.php" style="color: yellow; font-family: comic;font-weight: bolder; text-decoration: none;">Login</a>
+				<span style="float:left; font-size:14px; margin:1px; line-height:40px;">
+
+				<?php
+					if(isset($_SESSION['customer_email'])){
+						echo"<b style='color:yellow;'>Welcome:</b>" .$_SESSION['customer_email']."<b style='color:yellow;'>Your ";}
+					else{
+						echo"<b style='color:yellow;'>Welcome Guest:</b>"."<b style='color:yellow;'>Your ";
+					}
+				?>
+				Shopping Cart:</b>
+				Total Items:<b class="blink_text2" style="color: red;">
+				<?php totalCartItems();?></b>
+				Total Price: <b class="blink_text2" style="color: red;">
+				<?php PriceCartItems();?></b>
+
+				<a href="cart.php" style="color: orange; font-family: comic;font-weight: bolder; text-decoration: none;">
+				Go To Cart</a>&nbsp
+
+				<?php
+					if(!isset($_SESSION['customer_email'])){
+						echo"<a href='checkout.php' style='color:red; text-decoration: none;'><b>Login</b></a>";
+					}
+					else{
+						echo"<a href='logout.php' style='color:red; text-decoration: none;'><b>Logout</b></a>";	
+					}
+				?>
+				
 				</span>
 			</div><!--ShoppingCart ends-->
 			<!--products box starts-->	
@@ -96,7 +137,7 @@ include("functions/functions.php")
 
 
 
-		<div id="footer"><!--Footer starts --><h2 style="text-align: center; padding-top: 30px;">&copy; 2017 by www.EugeneSleator/php.com</h2></div><!--Footer Ends-->
+		<div id="footer"><!--Footer starts --><h2 style="text-align: center; padding-top: 30px;">&copy; 2017 by www.paddypopeye.com/php</h2></div><!--Footer Ends-->
 
 
 </div><!--main_wrapper ends-->

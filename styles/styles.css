@@ -1,8 +1,3 @@
-/* http://meyerweb.com/eric/tools/css/reset/ 
-   v2.0 | 20110126
-   License: none (public domain)
-*/
-
 html, body, div, span, applet, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
 a, abbr, acronym, address, big, cite, code,
@@ -27,15 +22,68 @@ footer, header, hgroup, menu, nav, section {
 	display: block;
 }
 
+body {background-image: url(../images/img-developmentbox1.gif);
+        background-color: skyblue;}
 
 
-body {background:skyblue;}
+.main_wrapper_cust{
+width:1000px;
+height:auto;
+margin:auto;
+background:brown;
+}
+
+
+.main_wrapper_admin{
+width:1000px;
+margin:auto;
+background-color: #187eae;
+}
+
+#header_admin{
+    width: 1000px;
+    height: 120px;
+    background-image: url(../images/admin-logo.gif);
+    border-bottom: 5px groove orange;
+}
+
+#left{
+    width: 795px;
+
+    background-image: url(../images/adminbg.jpeg);
+    float: left;
+
+}
+#right{
+    width: 200px;
+    float: right;
+    background: #187eae;
+    border-left: 5px groove orange;
+}
+
+#right a{
+    text-decoration: none;
+    color: white;
+    text-align: left;
+    font-size: 18px;
+    font-family: palatino;
+    padding: 6px;
+    margin: 6px;
+    display: block;
+}
+
+#right a:hover{
+color: orange;
+font-weight: bolder;
+text-decoration:underline;}
+
+
 
 .main_wrapper{
 width:1000px;
 height:auto;
 margin:auto;
-background:black;
+background: transparent;
 }
 
 .header_wrapper{
@@ -102,14 +150,22 @@ height: 150px;
 .content_wrapper{
 width: 1000px;
 margin: auto;
-background: pink;
+background: black;
 }
+
 
 #content_area{
 width: 800px;
 height: auto;
 float: right;
-background: pink;
+background-image: url(../images/background.jpeg);
+}
+
+#content_area_reg{
+width: 800px;
+height: auto;
+float: right;
+background-image: url(../images/backround2.jpeg);
 }
 
 #sidebar{
@@ -117,7 +173,20 @@ width: 200px;
 background: black;
 float: left;
 color: white;
+}
 
+#cust_sidebar{
+width: 200px;
+background: brown;
+float: right;
+color: white;
+}
+
+#sidebar_grow{
+width: 200px;
+background: black;
+float: left;
+color: white;
 }
 
 #sidebar_title{
@@ -152,10 +221,11 @@ text-align: center;
 	font-weight: bolder;
 	text-decoration: underline;
 }
+
 #footer{
 width: 1000px;
 height: 100px;
-background-color:gray;
+background-color:transparent;
 clear: both;
 }
 
@@ -167,31 +237,34 @@ margin-bottom:10px;
 }
 
 #single_product {
-	float:left; 
-	margin-left:30px; 
-	padding:10px;
-	margin:5px;
+float:left; 
+margin-left:30px; 
+padding:10px;
+margin:5px;
 }
 	
 #single_product img {
-	border:2px 
-	solid black;
+border:2px 
+solid black;
 }
 	
 #shopping_cart {
-	width:800px; 
-	height:50px; 
-	background:black; 
-	color:white;
+width:800px; 
+height:50px; 
+background: green; 
+color:white;
 }
+
+
 .blink_text {
 
     animation:1.0s blinker linear infinite;
     -webkit-animation:1.0s blinker linear infinite;
     -moz-animation:1.0s blinker linear infinite;
-
-     color: red;
-    }
+    color: red;
+    text-align: center;
+    text-shadow: blue;
+}
 
     @-moz-keyframes blinker {  
      0% { opacity: 1.0; }
@@ -217,7 +290,7 @@ margin-bottom:10px;
     -webkit-animation:2s blinker linear infinite;
     -moz-animation:2s blinker linear infinite;
 
-     color: orange;
+     color: black;
      text-shadow: currentColor;
     }
 

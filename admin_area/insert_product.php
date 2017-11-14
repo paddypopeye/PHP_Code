@@ -3,7 +3,23 @@
 
 <?php
 
-include("../functions/functions.php");
+if (isset($_POST['insert_post'])) {
+	session_start();
+
+	echo "<script>alert('Product has been inserted!!')</script>
+			<script>window.open('index.php?insert_product', '_self')</script>
+		";
+}
+
+
+include_once("../functions/functions.php");
+
+if(!isset($_SESSION['admin_email'])){
+	
+	echo "<script>window.open('login.php','_self')</script>";}
+	
+
+else{
 ?>
 
 <html>
@@ -16,7 +32,7 @@ include("../functions/functions.php");
 </head>
 <body bgcolor="skyblue">
 	<form action="insert_product.php" method="post" enctype="multipart/form-data">
-			<table align="center" width="750" border="2" bgcolor="orange">
+			<table align="center" width="795" border="2" bgcolor="#187eae">
 
 				<tr align="center">
 					<td colspan="7"><h2>Insert New Product</h2></td>
@@ -66,7 +82,8 @@ include("../functions/functions.php");
 				</tr>
 				<tr align="center">
 					
-					<td colspan="7"><input type="submit" name="insert_post" value="Insert Product Now" /></td>
+					<td colspan="7"><input type="submit" name="insert_post" value="Insert Product Now" />&nbsp&nbsp<a href='index.php' style='float:right; text-decoration: none; color: black;'><button style="float: center; margin-left: 100px; margin-top: 1px;">Cancel</a></td></td>
+
 				</tr>
  
 			</table>
@@ -76,6 +93,10 @@ include("../functions/functions.php");
 </html>
 
 <?php
+if (isset($_POST['cancel'])) {
+
+	echo "<script>window.open('index.php?view_products','_self')";
+}
 
 if(isset($_POST['insert_post'])){
 	// getting text content
@@ -97,10 +118,10 @@ if(isset($_POST['insert_post'])){
 	$insert_rows = mysqli_query($con, $insert_product);
 
 	if ($insert_rows) {
-		# code...
+		
 		echo "
 			<script>alert('Product has been inserted!!')</script>
-			<script>window.open('insert_product.php', '_self')</script>
+			<script>window.open('index.php?insert_product', '_self')</script>
 		";
 	}
 
@@ -108,3 +129,5 @@ if(isset($_POST['insert_post'])){
 }
 
 ?>
+
+<?php } ?>

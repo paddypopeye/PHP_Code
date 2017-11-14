@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 
 <?php
+session_start();
 include("functions/functions.php")
 ?>
 
@@ -20,8 +21,8 @@ include("functions/functions.php")
 
 	<!--Header Starts-->
 	<div class="header_wrapper">
-				<a href="index.php"><img id="logo" src="images/banner2.jpeg" /></a>
-				<a href="index.php"><img id="banner" src="images/banner.jpeg" /></a>
+				<a href="index.php"><img id="logo" src="images/A13.gif" /></a>
+				<a href="index.php"><img id="banner" src="images/boxing_computer.gif" /></a>
 			
 	</div>
 	<!--Header Ends-->
@@ -31,8 +32,24 @@ include("functions/functions.php")
 			<ul id="menu">
 				<li><a href="index.php">Home</a></li>
 				<li><a href="all_products.php">All Products</a></li>
-				<li><a href="#">My Account</a></li>
-				<li><a href="#">Sign Up</a></li>
+<?php
+					if(isset($_SESSION['customer_email'])){
+						
+						echo"<a href='customer/customerMyAccount.php'>My Account</a>";
+					}
+					else{
+						echo"<a href='checkout.php'>My Account</a>";	
+					}
+?>
+				<?php
+					if(!isset($_SESSION['customer_email'])){
+						
+						echo"<a href='customerReg.php'>Sign Up</a>";
+					}
+					else{
+						echo"<a href='customer/customerMyAccount.php'>Sign Up</a>";	
+					}
+?>
 				<li><a href="cart.php">Shopping Cart</a></li>
 				<li><a href="#">Contact Us</a></li>
 				
@@ -50,7 +67,7 @@ include("functions/functions.php")
 			<!--Menu Bar ends-->
 		<!--Sidebar starts-->
 
-		<div id="sidebar">
+		<div id="sidebar_grow">
 			<!--sidebar title starts-->
 			<div id="sidebar_title">Categories
 			</div><!--sidebar title ends-->	
@@ -75,9 +92,33 @@ include("functions/functions.php")
 		<div id="content_area">
 			<!--ShoppingCart starts-->
 			<div id="shopping_cart">
-				<span style="float: left; font-size: 16px; padding: 5px; line-height:40px;">Welcome Guest:&nbsp;<b style="color: yellow;">Shopping Cart:&nbsp;</b>Total Items:<b class="blink_text2" style="color: red;"><?php totalCartItems();?></b>&nbsp;Total Price: <b class="blink_text2" style="color: red;"><?php PriceCartItems();?></b>
-				<a href="cart.php" style="color: orange; font-family: comic;font-weight: bolder; text-decoration: none;">Go To Cart</a>
-				<a href="cart.php" style="color: yellow; font-family: comic;font-weight: bolder; text-decoration: none;">Login</a>
+				<span style="float:left; font-size:14px; margin:1px; line-height:40px;">
+
+				<?php
+					if(isset($_SESSION['customer_email'])){
+						echo"<b style='color:yellow;'>Welcome:</b>" .$_SESSION['customer_email']."<b style='color:yellow;'>Your ";}
+					else{
+						echo"<b style='color:yellow;'>Welcome Guest:</b>"."<b style='color:yellow;'>Your ";
+					}
+				?>
+				Shopping Cart:</b>
+				Total Items:<b class="blink_text2" style="color: red;">
+				<?php totalCartItems();?></b>
+				Total Price: <b class="blink_text2" style="color: red;">
+				<?php PriceCartItems();?></b>
+
+				<a href="index.php" style="color: orange; font-family: comic;font-weight: bolder; text-decoration: none;">
+				Back To Shop</a>&nbsp
+
+				<?php
+					if(!isset($_SESSION['customer_email'])){
+						echo"<a href='checkout.php' style='color:red; text-decoration: none;'><b>Login</b></a>";
+					}
+					else{
+						echo"<a href='logout.php' style='color:red; text-decoration: none;'><b>Logout</b></a>";	
+					}
+				?>
+				
 				</span>
 			</div><!--ShoppingCart ends-->
 			<!--products box starts-->	
@@ -86,15 +127,15 @@ include("functions/functions.php")
 
 				<table style="padding-bottom: 30px; border:2px solid black; align-content: center; width: 700px; height:100px; background-color: skyblue;">
 
-				<tr style="border: 5px solid black; text-align: center;">
+				<tr style="border: 1px solid black; text-align: center;">
 					<td style="border: 1px solid black; text-align: center;" colspan="7"><h3>Updatye your Cart</h3></td>
 				</tr>
 
-				<tr style="border: 1px solid black; text-align: center;">
-					<th style="border: 1px solid black; text-align: center;">Remove</th>
-					<th style="border: 1px solid black; text-align: center;">Product(s)</th>
+				<tr colspan="2" style="border: 1px solid black; text-align: center;">
+					<th style="border: 1px solid black; text-align: center;" colspan="2">Remove</th>
+					<th style="border: 1px solid black; text-align: center;" colspan="2">Product(s)</th>
 					<th style="border: 1px solid black; text-align: center;">Quantity</th>
-					<th style="border: 1px solid black; text-align: center;">Total Price:</th>
+					<th colspan="2"style="border: 1px solid black; text-align: center;">Total Price:</th>
 				</tr>
 
 <?php 
@@ -164,11 +205,11 @@ include("functions/functions.php")
 ?>
 
 	
-<tr style='border: 1px solid black; text-align: center;'>
-	<td style='border: 1px solid black; text-align: center; padding-top: 50px;'><input type="checkbox" name="remove[]" value="<?php echo $pro_id;?>"/></td>
+<tr colspan="2" style='border: 1px solid black; text-align: center;'>
+	<td colspan="2" style='border: 1px solid black; text-align: center; padding-top: 50px;'><input type="hidden" name="remove[]" value="0"/><input type="checkbox" name="remove[]" value="<?php echo $pro_id;?>"/></td>
 
 
-	<td style='border: 1px solid black; text-align: center;'><p><?php echo $product_title; ?></p><br>
+	<td colspan="2" style='border: 1px solid black; text-align: center;'><p><?php echo $product_title; ?></p><br>
 		<img style="border:1px solid black; padding-bottom: 1px;"
 		src='admin_area/product_images/<?php echo $product_image; ?>' width='80' height='80'></td>
 
@@ -184,19 +225,22 @@ include("functions/functions.php")
 <?php }}?>
 
 <tr align="right">
-	<td colspan="3" style="padding-right: 5px;"><b>Sub Total</b></td>
-	<td colspan="3" style="padding-right: 65px; padding-bottom: 10px;">
+	<td colspan="5" style="padding-right: 0px;"><b>Sub Total</b></td>
+	<td style="padding-right: 45px; padding-bottom: 10px;">
 		<b><?php PriceCartItems(); ?> :Euro</b>
 	</td>
 </tr>
 				
 	<tr style="border: 1px solid black; text-align: center;">
-		<td colspan="2"><input type="submit" name="update_cart" value="Update Cart"></td>
-		<td colspan="2"><input type="submit" name="remove_cart" value="Remove Cart"></td>
+		
+		<td colspan="2"><input type="submit" name="remove_cart" value="Remove Item(s)"/></td>
 
-		<td><input type="submit" name="continue" value="Continue Shopping"></td>
+		<td><input type="submit" name="continue" value="Continue Shopping"/></td>
 
-		<td><button><a href="checkout.php" style="text-decoration: none; color:gray;">CheckOut</a></button></td>
+		<td colspan="2"><input type="submit" name="update_cart" value="Update Quantity"/></td>
+
+		<td><input type="submit" name="checkout" value="Check Out"/>
+		</td>
 	</tr>
 			
 		
@@ -205,38 +249,49 @@ include("functions/functions.php")
 		global $con;
 		$ip = getIp();
 			if (isset($_POST['remove_cart'])) {
-
-				foreach ($_POST['remove'] as $remove_id) {
-						if (!$remove_id){
+				try {
+					foreach ($_POST['remove'] as $remove_id) {
+						if ($remove_id==0){
 							echo "<script>window.open('cart.php','_self')";
 							}
 						$delete_product = "DELETE FROM cart WHERE p_id='$remove_id' AND ip_addr='$ip'";
 						$run_delete = mysqli_query($con, $delete_product);
 						if ($run_delete) {
-						echo "<script>window.open('cart.php','_self')</script>";
-						
-							}
-						
+						echo "<script>window.open('cart.php','_self')</script>";}
 					}
-				
+				}
+			 
+			catch (Exception $e){
+				echo"Message:".$e->getMessage();	
+				}
 			}
 
 			if (isset($_POST['continue'])) {
 				echo"<script>window.open('index.php','_self')</script>";
 			}
+			if (isset($_POST['checkout'])) {
+				global $con;
+				$ip = getIp();
+				$select_product = "SELECT * FROM cart WHERE ip_addr='$ip'";
+				$run_select = mysqli_query($con,$select_product);
+				$check_run = mysqli_num_rows($run_select);
+				if (!$_SESSION['customer_email']) {
+					echo"<script>window.open('checkout.php','_self')</script>";
+				}
+				if ($check_run==0) {
+					echo"<script>window.open('customer/customerMyAccount.php','_self')</script>";
+				}
+				else{
+					echo"<script>window.open('checkout.php','_self')</script>";
+				}
+			}
+		
 			
 ?>
 				</div><!--products box ends-->
 				<?php getCartProds(); ?>	
-				
-				
 				<?php getIp(); ?>
-				
-		<?php 
-				
-
-						
-				?></table>
+</table>
 
 			</form>
 				

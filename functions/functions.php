@@ -23,6 +23,7 @@ function getCats(){
 	}
 }
 
+
 //displaying categories in the selection field
 function getCatsSelect(){
 	global $con;
@@ -189,7 +190,7 @@ function getCategoryProds(){
 			<h1 class='blink_text'>
 				<p>There are no products for this </p></b>
 						<p>category!!<p></h1>
-				<h1><a href='index.php' style='float:center;'><button class='blink_text2'>Return to the Shop</button></a></h1>
+				<h1><a href='index.php' style='float:center;'><button class='blink_text2'><b>Return to the Shop<b></button></a></h1>
 		";
 	}
 
@@ -218,7 +219,7 @@ function getCategoryProds(){
 		if ($count_prods > 0) {
 			# code...
 		
-		echo"<h1 style='padding-top:100px; float:center;'><a href='index.php' style='float:center; padding-bottom: 510px;'><button class='blink_text2'>Return to the Shop</button></a></h1>";
+		echo"<h1 style='padding-top:100px; float:center;'><a href='index.php' style='float:center; padding-bottom: 510px;'><button class='blink_text2'><b>Return to the Shop</b></button></a></h1>";
 		}
 	}
 }
@@ -238,9 +239,9 @@ function getBrandProds(){
 		echo"
 			
 			<h1 class='blink_text'>
-				<p>There are no products for this </p></b>
-						<p>brand !!<p></h1>
-				<h1><a href='index.php' style='float:center;'><button class='blink_text2'>Return to the Shop</button></a></h1>
+				<p>..There are no products for this </p></b>
+						<p>brand..!!<p></h1>
+				<h1><a href='index.php' style='float:center;'><button class='blink_text2'><b>Return to the Shop</b></button></a></h1>
 		";
 	}
 
@@ -268,7 +269,7 @@ function getBrandProds(){
 		}
 			if ($count_prods > 0) {
 			# code...
-			echo"<h1 style='padding-top:100px; float:center;'><a href='index.php' style='float:center; padding-bottom: 510px;'><button class='blink_text2'>Return to the Shop</button></a></h1>";
+			echo"<h1 style='padding-top:100px; float:center;'><a href='index.php' style='float:center; padding-bottom: 510px;'><button class='blink_text2'><b>Return to the Shop</b></button></a></h1>";
 		}
 	}
 }
@@ -295,7 +296,7 @@ function getSearchQuery(){
 							<p>Or Click the Button Below to Return..</p></br>
 			</h1></br>
 				
-				<h1><a href='index.php' style='float:center;'><button class='blink_text2'>Return to the Shop</button></a></h1>
+				<h1><a href='index.php' style='float:center;'><button class='blink_text2'><b>Return to the Shop</b></button></a></h1>
 		";
 	}
 
@@ -312,7 +313,7 @@ function getSearchQuery(){
 		<div id='single_product'>
 
 				<h3>$prod_title</h3>
-				<img src='admin_area/product_images/$prod_image' width='180' height='180'/>
+				<img src='Ecommerce/admin_area/product_images/$prod_image' width='180' height='180'/>
 					
 						<p><b>Price: $prod_price euro</b></p>
 

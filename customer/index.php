@@ -2,15 +2,15 @@
 
 <?php
 session_start();
-include("functions/functions.php")
+include_once("../functions/functions.php")
 ?>
 
 
 
 <html>
 	<head>
-		<title>Product Details</title>
-		<link rel="stylesheet" type="text/css" href="styles/styles.css" media="all">
+		<title>MyOnlineShop</title>
+		<link rel="stylesheet" type="text/css" href="../styles/styles.css" media="all">
 	</head>
 
 <body>
@@ -21,8 +21,8 @@ include("functions/functions.php")
 
 	<!--Header Starts-->
 	<div class="header_wrapper">
-				<a href="index.php"><img id="logo" src="images/banner2.jpeg" /></a>
-				<a href="index.php"><img id="banner" src="images/banner.jpeg" /></a>
+				<a href="index.php"><img id="logo" src="../images/banner2.jpeg" /></a>
+				<a href="index.php"><img id="banner" src="../images/banner.jpeg" /></a>
 			
 	</div>
 	<!--Header Ends-->
@@ -32,16 +32,8 @@ include("functions/functions.php")
 			<ul id="menu">
 				<li><a href="index.php">Home</a></li>
 				<li><a href="all_products.php">All Products</a></li>
-				<?php
-					if(isset($_SESSION['customer_email'])){
-						
-						echo"<a href='customer/customerMyAccount.php'>My Account</a>";
-					}
-					else{
-						echo"<a href='checkout.php'>My Account</a>";	
-					}
-?>
-				<?php
+				<li><a href="#">My Account</a></li>
+								<?php
 					if(!isset($_SESSION['customer_email'])){
 						
 						echo"<a href='customerReg.php'>Sign Up</a>";
@@ -121,11 +113,14 @@ include("functions/functions.php")
 				
 				</span>
 			</div><!--ShoppingCart ends-->
-			<!--Products Box Starts -->
-			<div id="products_box" style="margin-left: 5px; margin-bottom: 10px;">
-					<?php getSingleProd();?>
-
-				</div><!--Products Box Ends -->
+			<!--products box starts-->	
+			<div id="products_box">
+					<?php getProds();?>
+					<?php getCategoryProds();?>
+					<?php getBrandProds(); ?>
+				</div><!--products box ends-->	
+				<?php getIp(); ?>
+				<?php cart(); ?>
 		</div><!--content area ends-->
 		
 	</div>
@@ -134,7 +129,7 @@ include("functions/functions.php")
 
 
 
-		<div id="footer"><!--Footer starts --><h2 style="text-align: center; padding-top: 30px;">&copy; 2017 by www.paddypopeye.com/php></div><!--Footer Ends-->
+		<div id="footer"><!--Footer starts --><h2 style="text-align: center; padding-top: 30px;">&copy; 2017 by www.paddypopeye.com/php</h2></div><!--Footer Ends-->
 
 
 </div><!--main_wrapper ends-->
