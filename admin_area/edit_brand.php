@@ -33,11 +33,14 @@ else{
 		<h2>Edit a Brand..!!</h2><br>
 	</b>
 		<br><input type="text" name="edit_brand" placeholder="<?php echo $brand_title; ?>"/> 
-		<br><br><input type="submit" name="update_brand" value="Edit a Brand"  /><br><br><br>
+		<br><br><input type="submit" name="update_brand" value="Edit a Brand"  />
+		<input type="submit" name="cancel" value="Cancel">
 </form> 
 
 <?php
-
+if (isset($_POST['cancel'])) {
+	echo "<script>window.open('index.php?view_brands','_self')</script>";
+}
 if(isset($_POST['update_brand'])){
 	// getting text content
 	$get_id = $_GET['edit_brand'];

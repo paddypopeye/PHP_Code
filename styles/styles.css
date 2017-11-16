@@ -38,6 +38,8 @@ background:brown;
 width:1000px;
 margin:auto;
 background-color: #187eae;
+border: 5px groove orange;
+
 }
 
 #header_admin{
@@ -49,7 +51,14 @@ background-color: #187eae;
 
 #left{
     width: 795px;
+    background-image: url(../images/adminbg.jpeg);
+    float: left;
 
+}
+
+#left_delete{
+    height: 501px;
+    width: 795px;
     background-image: url(../images/adminbg.jpeg);
     float: left;
 
@@ -170,9 +179,13 @@ background-image: url(../images/backround2.jpeg);
 
 #sidebar{
 width: 200px;
-background: black;
+background: transparent;
 float: left;
-color: white;
+
+}
+
+#sidebar li{
+    color: black;
 }
 
 #cust_sidebar{
@@ -200,16 +213,20 @@ text-align: center;
 #cats{
 padding: 0;
 text-align: center;
+color: black;
 }
 
 #cats li{
 	list-style: none;
 	display: block;
 	margin: 15px;
+    color: black;
 }
 
 #cats a{
-	color: white;
+	color:white;
+    
+    
 	padding: 5px;
 	margin: 5px;
 	text-align: center;
@@ -225,7 +242,7 @@ text-align: center;
 #footer{
 width: 1000px;
 height: 100px;
-background-color:transparent;
+background-color:#187eae;
 clear: both;
 }
 

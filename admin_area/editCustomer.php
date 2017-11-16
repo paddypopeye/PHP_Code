@@ -29,7 +29,7 @@ else{
 ?>
 <!--products box starts-->	
 <div id="products_box">
-	<form method="post" action="" enctype="multipart/form-data">
+	<form  method="post" action="" enctype="multipart/form-data">
 			<table align="center" width="750">
 				<tr style="text-align: center;">
 
@@ -78,7 +78,7 @@ else{
 
 		<tr>
 			<td colspan="7" align="center"><input type="submit" name="update_acc" value="Update Account"/>
-			<a href='index.php?view_products' style='float:right; text-decoration: none; color: black;'><button style="float: center; margin-left: 100px; margin-top: 1px;">Cancel</a></td>
+			<a href='index.php?view_customers' style='float:right; text-decoration: none; color: black;'><button style="float: center; margin-left: 100px; margin-top: 1px;">Cancel</a></td>
 		</tr>
 	</table>
 </form>

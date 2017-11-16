@@ -313,7 +313,7 @@ function getSearchQuery(){
 		<div id='single_product'>
 
 				<h3>$prod_title</h3>
-				<img src='Ecommerce/admin_area/product_images/$prod_image' width='180' height='180'/>
+				<img src='admin_area/product_images/$prod_image' width='180' height='180'/>
 					
 						<p><b>Price: $prod_price euro</b></p>
 

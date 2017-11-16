@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+
 <?php
 include("../functions/functions.php");
 if(!isset($_SESSION['admin_email'])){
@@ -8,33 +8,29 @@ if(!isset($_SESSION['admin_email'])){
 
 else{
 ?>
-<html>
-<head>
-	<title>Delete Product</title>
-</head>
 
-<body bgcolor="skyblue">
-	<form action="" method="post" enctype="multipart/form-data">
-			<div id="products_box">
+
+	
+<div id="main_wrapper_admin">
 	<form method="post" action="" enctype="multipart/form-data">
-			<table align="center" width="750">
+			<table align="center" width="795">
 				<tr style="text-align: center;">
 					<td colspan="6"><h2 class="blink_text">WARNING!! CATEGORY DELETION !!</h2>
 				</td>
 			</tr>		
 			<tr>
-				<td align="center"><b style="color: red; font-weight: bolder; font-size: 19px;"><br><br><br>Yes Delete This Category</b></td></tr>
+				<td align="center"><b style="color: red; font-weight: bolder; font-size: 19px;"><br><br>Yes Delete This Category</b></td></tr>
 				<tr>
 
 				<td align="center"><input type="submit" name="yes" value="Delete Category" /></td>
 			</tr>
 			<tr>
-				<td align="center"><b style="color: red; font-weight: bolder; font-size: 19px;"><br><br>Do Not Delete This Category</b></td></tr><br><br>
+				<td align="center"><b style="color: red; font-weight: bolder; font-size: 19px;"><br><br>Do Not Delete This Category</b></td></tr><br><br><br><br>
 				<tr>
 				<td align="center"><input type="submit" name="no" value="Do Not Delete Category" /></td>
 			</tr>
 			<tr >
-				<td height="55px;">
+				<td height="210px;">
 					
 				</td>
 			</tr>
@@ -64,6 +60,5 @@ else{
 
 			</table>
 		</form>
-	</body>
-</html>
+		</div>
 <?php } ?>

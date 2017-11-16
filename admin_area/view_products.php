@@ -6,7 +6,7 @@ if(!isset($_SESSION['admin_email'])){
 
 else{
 ?>
-<table width="795" align="center" bgcolor="pink">
+<table width="795" align="center" bgcolor="#187eae" style="border-right: 5px groove orange;">
 
 	<tr align="center"> 
 		<td colspan="6" style="border:3px groove orange;"><h2>View all products</h2></td>

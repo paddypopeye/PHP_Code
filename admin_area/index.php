@@ -48,6 +48,32 @@ else{
 		<div id="left">
 			
 			<?php 
+
+			 
+	if (isset($_GET['confirm_order'])) {
+		include_once('../functions/functions.php');
+		global $con;
+		$status = "Completed";
+		$get_id = $_GET['confirm_order'];
+		$check_update = "SELECT * FROM orders WHERE order_id='$get_id'";
+		$run_check = mysqli_query($con, $check_update);
+		$row_run = mysqli_fetch_array($run_check);
+		$order_status = $row_run['order_status'];
+		if ($order_status=="Completed") {
+
+			echo "<script>alert('This Order is already in \"Completed Status\"')</script>
+				<script>window.open('index.php?view_orders','_self')</script>";
+			
+		}
+		
+		$update_order = "UPDATE  orders SET order_status='$status' WHERE order_id='$get_id'";
+		$run_update = mysqli_query($con, $update_order);
+		if ($run_update) {
+			echo "<script>alert('The Order has been updated to Complete')</script>
+					<script>window.open('index.php?view_orders','_self')</script>
+					";
+		}
+	}
 				if (isset($_GET['insert_product'])) {
 					include_once('insert_product.php');
 				}
@@ -96,11 +122,18 @@ else{
 				if (isset($_GET['delete_cust'])) {
 					include_once('deleteCust.php');
 				}
+				if (isset($_GET['view_orders'])) {
+					include_once('viewCustomerOrders.php');
+				}
+				if (isset($_GET['view_payments'])) {
+					include_once('viewPayments.php');
+				}
+				
 			?>
 
 		</div>
 		<!--left ends-->
-<div id="footer"><h2 style="text-align: center; padding-top: 30px;">&copy;2017 by www.paddypopeye.com/php</h2></div>
+<div id="footer" style="border-top: 5px groove orange;"><h2 style="text-align: center; padding-top: 30px;">&copy;2017 by www.paddypopeye.com/php</h2></div>
 <!--Footer Ends-->
 </div>
 <!--Main Wrapper ends-->
@@ -108,4 +141,9 @@ else{
 </body>
 
 </html>
+
+
 <?php } ?>
+
+
+

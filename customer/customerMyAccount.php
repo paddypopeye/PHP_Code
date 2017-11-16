@@ -13,7 +13,7 @@ include_once("../functions/functions.php")
 
 <body>
 <!---Main_wrapper starts-->
-<div class="main_wrapper">
+<div class="main_wrapper" style="color: transparent;">
 <!--Header Starts-->
 	<div class="header_wrapper">
 				<a href="index.php"><img id="logo" src="../images/banner2.jpeg" /></a>
@@ -150,6 +150,9 @@ include_once("../functions/functions.php")
 			}
 			if (isset($_GET['delete'])){
 				include('deleteMyAccount.php');
+			}
+			if (isset($_GET['orders'])){
+				include('../admin_area/customerOrders.php');
 			}
 			?>
 		</div>

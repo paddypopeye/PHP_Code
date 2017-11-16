@@ -13,13 +13,16 @@ else{
 		<h2>Insert a new Category..!!</h2><br>
 	</b>
 		<br><input type="text" name="new_cat" /> 
-		<br><br><input type="submit" name="add_cat" value="Add a new Category" /><br><br><br>
+		<br><br><input type="submit" name="add_cat" value="Add a new Category" />
+		<input type="submit" name="cancel" value="Cancel"/></td><br><br><br>
 
 
 </form>
 
 <?php
 	include_once('../functions/functions.php');	
+	if (isset($_POST['cancel'])) {
+					echo "<script>window.open('index.php?view_cats','_self')</script>";}
 	if (isset($_POST['add_cat'])) {
 
 	global $con;

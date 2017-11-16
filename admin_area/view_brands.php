@@ -7,7 +7,7 @@
 else{
 
 ?>
-<table width="795" align="center" bgcolor="pink">
+<table width="795" align="center" bgcolor="#187eae">
 
 	<tr align="center"> 
 		<td colspan="6" style="border:3px groove orange;"><h2>View all Brands</h2></td>

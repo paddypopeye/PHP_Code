@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+
 <?php
 include("../functions/functions.php");
 if(!isset($_SESSION['admin_email'])){
@@ -8,16 +8,10 @@ if(!isset($_SESSION['admin_email'])){
 
 else{
 ?>
-<html>
-<head>
-	<title>Delete Brand</title>
-</head>
 
-<body bgcolor="skyblue">
-	
-<div id="products_box">
+<div id="main_wrapper_admin">
 	<form method="post" action="" enctype="multipart/form-data">
-			<table align="center" width="750">
+			<table width="795" align="center">
 				<tr style="text-align: center;">
 					<td colspan="6"><h2 class="blink_text">WARNING!! BRAND DELETION !!</h2>
 				</td>
@@ -29,12 +23,12 @@ else{
 				<td align="center"><input type="submit" name="yes" value="Delete Brand" /></td>
 			</tr>
 			<tr>
-				<td align="center"><b style="color: red; font-weight: bolder; font-size: 19px;"><br><br>Do Not Delete This Brand</b></td></tr><br><br>
+				<td align="center"><b style="color: red; font-weight: bolder; font-size: 19px;"><br><br>Do Not Delete This Brand</b></td></tr><br><br><br>
 				<tr>
 				<td align="center"><input type="submit" name="no" value="Do Not Delete Brand" /></td>
 			</tr>
 			<tr >
-				<td height="55px;">
+				<td height="210px;">
 					
 				</td>
 			</tr>
@@ -64,6 +58,6 @@ else{
 
 			</table>
 		</form>
-	</body>
-</html>
+		</div>
+
 <?php } ?>

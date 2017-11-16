@@ -33,10 +33,14 @@ else{
 		<h2>Edit a Category..!!</h2><br>
 	</b>
 		<br><input type="text" name="edit_cat" placeholder="<?php echo $cat_title; ?>"/> 
-		<br><br><input type="submit" name="update_cat" value="Edit a Category"  /><br><br><br>
+		<br><br><input type="submit" name="update_cat" value="Edit a Category"  />
+		<input type="submit" name="cancel" value="Cancel"/></td><br><br><br>
+
 </form> 
 
 <?php
+if (isset($_POST['cancel'])) {
+					echo "<script>window.open('index.php?view_cats','_self')</script>";}
 
 if(isset($_POST['update_cat'])){
 	// getting text content

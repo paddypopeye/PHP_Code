@@ -67,7 +67,7 @@ include("functions/functions.php")
 			<!--Menu Bar ends-->
 		<!--Sidebar starts-->
 
-		<div id="sidebar_grow">
+		<div id="sidebar">
 			<!--sidebar title starts-->
 			<div id="sidebar_title">Categories
 			</div><!--sidebar title ends-->	

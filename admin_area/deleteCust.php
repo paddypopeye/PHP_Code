@@ -19,17 +19,17 @@ else{
 	<form method="post" action="" enctype="multipart/form-data">
 			<table align="center" width="750">
 				<tr style="text-align: center;">
-					<td colspan="6"><h2 class="blink_text">WARNING!! CUSTOMER ACCOUNT DELETION !!</h2>
+					<td colspan="6"><h2 class="blink_text">WARNING!! CUSTOMER ACCOUNT DELETION !!<br><br><br></h2>
 				</td>
 			</tr>		
 			<tr>
 				<td align="center"><b style="color: red; font-weight: bolder; font-size: 19px;"><br><br><br>Yes Delete This Customer</b></td></tr>
 				<tr>
 
-				<td align="center"><input type="submit" name="yes" value="Delete Customer" /></td>
+				<td align="center"><input type="submit" name="yes" value="Delete Customer" /><br><br><br><br><br><br><br><br></td>
 			</tr>
 			<tr>
-				<td align="center"><b style="color: red; font-weight: bolder; font-size: 19px;"><br><br>Do Not Delete This Customer</b></td></tr><br><br>
+				<td align="center"><b style="color: red; font-weight: bolder; font-size: 19px;"><br><br>Do Not Delete This Customer</b></td></tr>
 				<tr>
 				<td align="center"><input type="submit" name="no" value="Do Not Delete Customer" /></td>
 			</tr>
