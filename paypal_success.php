@@ -212,8 +212,8 @@ include_once("functions/functions.php")
 			    $mail->SMTPSecure = "ssl"; // sets the prefix to the servier
 			    $mail->Host = "smtp.gmail.com"; // sets GMAIL as the SMTP server
 			    $mail->Port = 465; // set the SMTP port for the GMAIL server
-			    $mail->Username = "eugeneslaeator17@gmail.com"; // GMAIL username
-			    $mail->Password = "Password001"; // GMAIL password
+			    $mail->Username = "****************"; // GMAIL username
+			    $mail->Password = "***************"; // GMAIL password
 			}
 
 			$headers = "MIME-Version: 1.0" . "\r\n";
